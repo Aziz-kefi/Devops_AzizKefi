@@ -52,7 +52,6 @@ services:
       - mysql-data:/var/lib/mysql
     networks:
       devops:
-        ipv4_address: 172.33.0.40
   nexus:
     image: sonatype/nexus3:latest
     restart: always
