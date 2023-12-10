@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage ('Checkout to SCM') {
             steps {
-                git branch: 'hassen', credentialsId: 'devops_hassen', url: 'https://github.com/Hassen-Chouadah/DevOps_Project.git'
-                sh 'git checkout hassen'
+                git branch: 'aziz', credentialsId: 'devops_aziz', url: 'https://github.com/Aziz-kefi/Devops_AzizKefi.git'
+                sh 'git checkout aziz'
                 sh 'ls -la'
                 sh "echo 'Hello World'"
             }

@@ -101,7 +101,7 @@ services:
       - prometheus
 networks:
   devops:
-    external: true
+      name: devops 
 volumes:
   postgresql:
     driver: local
