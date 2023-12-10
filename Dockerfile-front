@@ -1,0 +1,11 @@
+FROM node:lts as build-stage
+RUN mkdir /opt/app
+COPY ./frontend /opt/app
+WORKDIR /opt/app
+RUN npm install
+RUN npm run build
+
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /opt/app/dist/summer-workshop-angular /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

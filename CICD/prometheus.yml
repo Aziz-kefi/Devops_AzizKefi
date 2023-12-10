@@ -1,0 +1,11 @@
+# A sample Prometheus configuration for jenkins
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'jenkins-monitor'
+scrape_configs:
+  - job_name: 'jenkins'
+    metrics_path: '/prometheus'
+    static_configs:
+      - targets: ['172.20.0.2:8080']

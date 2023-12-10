@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+
+  backend:
+    image: adameister98/devops_project:back-latest
+    restart: always
+    ports:
+      - target: 8082
+        published: 8082
+        protocol: tcp
+        mode: host
+    networks:
+      - devops
+      
+  frontend:
+    image: adameister98/devops_project:front-latest
+    restart: always
+    ports:
+      - target: 80
+        published: 8888
+        protocol: tcp
+        mode: host
+    networks:
+      - devops
+    depends_on:
+      - backend
+
+networks:
+  devops:
+    external: true

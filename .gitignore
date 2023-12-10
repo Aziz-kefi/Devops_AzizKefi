@@ -1,0 +1,30 @@
+backend/target/
+backend/pom.xml.tag
+backend/pom.xml.releaseBackup
+backend/pom.xml.versionsBackup
+backend/pom.xml.next
+backend/release.properties
+backend/dependency-reduced-pom.xml
+backend/buildNumber.properties
+backend/.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+backend/.project
+# JDT-specific (Eclipse Java Development Tools)
+backend/.classpath
+.vagrant
+
+# gitignore for Angular Project in ./frontend
+frontend/node_modules
+frontend/dist
+frontend/e2e/coverage
+frontend/e2e/node_modules
+frontend/e2e/protractor.conf.js
+frontend/e2e/tsconfig.json
+frontend/e2e/src/app.e2e-spec.ts
+frontend/e2e/src/app.po.ts
+frontend/e2e/src/tsconfig.e2e.json
+frontend/src/assets/.gitkeep

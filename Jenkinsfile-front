@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    tools {
+        maven 'M2_HOME'
+    }
+    stages {
+        stage ('Checkout to SCM') {
+            steps {
+                git branch: 'hassen', credentialsId: 'devops_hassen', url: 'https://github.com/Hassen-Chouadah/DevOps_Project.git'
+                sh 'git checkout hassen'
+                sh 'ls -la'
+                sh "echo 'Hello World'"
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonarInstallation') {
+                    sh 'cd frontend && mvn clean verify sonar:sonar -Dsonar.projectKey=devops_project -Dsonar.projectName=\'devops_project\' -Dsonar.projectVersion=1.0  -Dsonar.sources=src/main/java -Dsonar.sourceEncoding=UTF-8 -Dsonar.language=java -Dsonar.java.binaries=target/classes'
+                }
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+        // stage ('JUNIT/MOCKITO') {
+        //     steps {
+        //     }
+        // }
+        stage ('Deploy to Nexus') {
+            steps {
+                sh 'cd backend && mvn deploy'
+            }
+        }
+    }
+}
