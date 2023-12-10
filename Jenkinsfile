@@ -72,18 +72,7 @@ pipeline {
                 sh 'sudo docker push krayaaccount/devopsazizkefi:back-latest'
             }
         }
-        stage ('Build Docker Image for Frontend') {
-            steps {
-                sh 'id'
-                sh 'sudo docker build -t krayaaccount/devopsazizkefi:front-latest -f Dockerfile-front .'
-            }
-        }
-        stage ('Push Frontend Docker Image to DockerHub') {
-            steps {
-                sh 'sudo docker login -u krayaaccount -p dckr_pat_hwRSdxTeQg0xFWT6IaADKgiop5Q'
-                sh 'sudo docker push krayaaccount/devopsazizkefi:front-latest'
-            }
-        }
+      
         stage ('Deploy to docker using docker-compose') {
             steps {
                 dir('DevOps_stack') {
