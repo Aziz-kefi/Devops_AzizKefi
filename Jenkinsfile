@@ -63,25 +63,25 @@ pipeline {
         stage ('Build Docker Image for Backend') {
             steps {
                 sh 'id'
-                sh 'sudo docker build -t adameister98/devops_project:back-latest -f Dockerfile-back .'
+                sh 'sudo docker build -t krayaaccount/devopsazizkefi:back-latest -f Dockerfile-back .'
             }
         }
         stage ('Push Backend Docker Image to DockerHub') {
             steps {
-                sh 'sudo docker login -u adameister98 -p dckr_pat_U7i8w0s5wZ2ZzIKeb-8If7cRjsg'
-                sh 'sudo docker push adameister98/devops_project:back-latest'
+                sh 'sudo docker login -u krayaaccount -p dckr_pat_hwRSdxTeQg0xFWT6IaADKgiop5Q'
+                sh 'sudo docker push krayaaccount/devopsazizkefi:back-latest'
             }
         }
         stage ('Build Docker Image for Frontend') {
             steps {
                 sh 'id'
-                sh 'sudo docker build -t adameister98/devops_project:front-latest -f Dockerfile-front .'
+                sh 'sudo docker build -t krayaaccount/devopsazizkefi:front-latest -f Dockerfile-front .'
             }
         }
         stage ('Push Frontend Docker Image to DockerHub') {
             steps {
-                sh 'sudo docker login -u adameister98 -p dckr_pat_U7i8w0s5wZ2ZzIKeb-8If7cRjsg'
-                sh 'sudo docker push adameister98/devops_project:front-latest'
+                sh 'sudo docker login -u krayaaccount -p dckr_pat_hwRSdxTeQg0xFWT6IaADKgiop5Q'
+                sh 'sudo docker push krayaaccount/devopsazizkefi:front-latest'
             }
         }
         stage ('Deploy to docker using docker-compose') {

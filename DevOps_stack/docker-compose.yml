@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   backend:
-    image: adameister98/devops_project:back-latest
+    image: krayaaccount/devopsazizkefi:back-latest
     restart: always
     ports:
       - target: 8082
