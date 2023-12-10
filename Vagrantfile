@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 9000, host: 9000, host_ip: "127.0.0.1" # SonarQube
     config.vm.network "forwarded_port", guest: 8080, host: 8282, host_ip: "127.0.0.1" # Jenkins
     config.vm.network "forwarded_port", guest: 3000, host: 3000, host_ip: "127.0.0.1" # Grqfqnq
-    config.vm.network "forwarded_port", guest: 9090, host: 9090, host_ip: "127.0.0.1" # BrouMasiuous
+    config.vm.network "forwarded_port", guest: 9090, host: 9090, host_ip: "127.0.0.1" # Prometheus
     config.vm.network "forwarded_port", guest: 8082, host: 8082, host_ip: "127.0.0.1" # backend
     config.vm.network "forwarded_port", guest: 8888, host: 8888, host_ip: "127.0.0.1" # frontend
   

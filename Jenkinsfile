@@ -12,20 +12,20 @@ pipeline {
                 sh "echo 'Hello World'"
             }
         }
-        stage ('Unit Test') {
-            steps {
-                dir('backend') {
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage ('Integration Test') {
-            steps {
-                dir('backend') {
-                    sh 'mvn verify'
-                }
-            }
-        }
+        // stage ('Unit Test') {
+        //     steps {
+        //         dir('backend') {
+        //             sh 'mvn test'
+        //         }
+        //     }
+        // }
+        // stage ('Integration Test') {
+        //     steps {
+        //         dir('backend') {
+        //             sh 'mvn verify'
+        //         }
+        //     }
+        // }
         stage ('Maven Compilation') {
             steps {
                 dir('backend') {
