@@ -12,20 +12,20 @@ pipeline {
                 sh "echo 'Hello World'"
             }
         }
-        // stage ('Unit Test') {
-        //     steps {
-        //         dir('backend') {
-        //             sh 'mvn test'
-        //         }
-        //     }
-        // }
-        // stage ('Integration Test') {
-        //     steps {
-        //         dir('backend') {
-        //             sh 'mvn verify'
-        //         }
-        //     }
-        // }
+        stage ('Unit Test') {
+            steps {
+                dir('backend') {
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage ('Integration Test') {
+            steps {
+                dir('backend') {
+                    sh 'mvn verify'
+                }
+            }
+        }
         stage ('Maven Compilation') {
             steps {
                 dir('backend') {
@@ -43,7 +43,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 dir('backend') {   
-                    withSonarQubeEnv('sonarInstallation') {
+                    withSonarQubeEnv('sonar') {
                         sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=Devops-Project-Back -Dsonar.projectName=\'Devops Project Back\' -Dsonar.projectVersion=1.0  -Dsonar.sources=src/main/java -Dsonar.sourceEncoding=UTF-8 -Dsonar.language=java -Dsonar.java.binaries=target/classes'
                     }
                 }
